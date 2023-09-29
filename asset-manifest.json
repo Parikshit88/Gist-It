@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Gist-It/static/css/main.10b013fc.css",
+    "main.js": "/Gist-It/static/js/main.fa7eadfb.js",
+    "index.html": "/Gist-It/index.html",
+    "main.10b013fc.css.map": "/Gist-It/static/css/main.10b013fc.css.map",
+    "main.fa7eadfb.js.map": "/Gist-It/static/js/main.fa7eadfb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.10b013fc.css",
+    "static/js/main.fa7eadfb.js"
+  ]
+}
