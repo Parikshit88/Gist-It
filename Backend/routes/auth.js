@@ -19,19 +19,22 @@ router.post(
     ).isLength({ min: 7 }),
   ],
   async (req, res) => {
-    let success = false
+    let success = false;
     // if there are errors, return bad request
     try {
       const result = validationResult(req);
       if (!result.isEmpty()) {
-        return res.status(404).json({success, result: result.array() });
+        return res.status(404).json({ success, result: result.array() });
       }
       //Check whether the user with same email exists
       let user = await User.findOne({ email: req.body.email });
       if (user) {
         return res
           .status(400)
-          .json({ success,error: "Sorry a user with this email already exists" });
+          .json({
+            success,
+            error: "Sorry a user with this email already exists",
+          });
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -48,8 +51,8 @@ router.post(
       };
       const authToken = jwt.sign(data, JWT_SECRET);
       //   res.json(user);
-      success=true
-      res.json({success, authToken });
+      success = true;
+      res.json({ success, authToken });
     } catch (error) {
       //catch error
       console.error(error.message);
@@ -68,7 +71,7 @@ router.post(
   ],
   async (req, res) => {
     // if there are errors, return bad request
-let success = false;
+    let success = false;
     try {
       const result = validationResult(req);
       if (!result.isEmpty()) {
@@ -87,7 +90,10 @@ let success = false;
         success = false;
         return res
           .status(400)
-          .json({ success, error: "Please try to login with correct credentials" });
+          .json({
+            success,
+            error: "Please try to login with correct credentials",
+          });
       }
       const data = {
         user: {
@@ -97,7 +103,7 @@ let success = false;
       const authToken = jwt.sign(data, JWT_SECRET);
       //   res.json(user);
       success = true;
-      res.json({ success,authToken });
+      res.json({ success, authToken });
     } catch (error) {
       //catch error
       console.error(error.message);
