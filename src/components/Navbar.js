@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/home">
+        <Link className="navbar-brand" to="/">
           Gist-It
         </Link>
         <button
@@ -36,7 +36,7 @@ const Navbar = () => {
                   location.pathname === "/" ? "active" : ""
                 }`}
                 aria-current="page"
-                to="/home"
+                to="/"
               >
                 Home
               </Link>
